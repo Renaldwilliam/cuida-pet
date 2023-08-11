@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "978106302553",
+    "project_id": "cuidapet-renald",
+    "storage_bucket": "cuidapet-renald.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978106302553:android:4bf1688499009a88ecb148",
+        "android_client_info": {
+          "package_name": "br.com.academiadoflutter.cuida_pet_modular_mobx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "978106302553-jqjrmnlnlb9mclt5f6bmd0ahuat62a9j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.academiadoflutter.cuida_pet_modular_mobx",
+            "certificate_hash": "4b203cc5505d491412c0734488ea3c92f3796224"
+          }
+        },
+        {
+          "client_id": "978106302553-g13f0au4urb6shvcrhn8i1t117gdhkh1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDqT0wsmQPUJWjMWqvRzGJdgA5TrDZonA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "978106302553-drrimhcdugekl28r6s7cnsmpl0jcv8m7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
