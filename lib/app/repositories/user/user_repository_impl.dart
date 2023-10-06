@@ -95,7 +95,7 @@ class UserRepositoryImpl implements UserRepository {
   @override
   Future<String> loginSocial(SocialNetworkModel model) async {
     try {
-      final result = await _restClient.unauth().post('/auth', data: {
+      final result = await _restClient.unauth().post('/auth/', data: {
         "login": model.email,
         "social_login": true,
         "avatar": model.avatar,

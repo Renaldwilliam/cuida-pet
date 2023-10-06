@@ -74,8 +74,7 @@ class UserServiceImpl implements UserService {
               message:
                   'E-mail não confirmado, por favor verifique sua caixa de span');
         }
-        final accessToken =
-            await _userRepository.loginWithEmailPassword(email, password);
+        final accessToken =  await _userRepository.loginWithEmailPassword(email, password);
 
         await _saveAccessToken(accessToken);
         await _confirmLogin();
@@ -118,12 +117,11 @@ class UserServiceImpl implements UserService {
       final firebaseAuth = FirebaseAuth.instance;
       switch (socialLoginType) {
         case SocialLoginType.facebook:
-          throw Failure(message: 'Facebook not implemeted');
-        // break;
+          socialModel = await _socialRepository.facebookLogin();
+          authCredential = FacebookAuthProvider.credential(socialModel.accessToken);
         case SocialLoginType.google:
           socialModel = await _socialRepository.googleLogin();
-          authCredential = GoogleAuthProvider.credential(
-              accessToken: socialModel.accessToken, idToken: socialModel.id);
+          authCredential = GoogleAuthProvider.credential(accessToken: socialModel.accessToken, idToken: socialModel.id);
           break;
       }
 

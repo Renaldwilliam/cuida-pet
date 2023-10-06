@@ -3,6 +3,7 @@ import 'package:cuida_pet_modular_mobx/app/core/helpers/environments.dart';
 import 'package:cuida_pet_modular_mobx/app/core/local_storage/local_storage.dart';
 import 'package:cuida_pet_modular_mobx/app/core/logger/app_logger.dart';
 import 'package:cuida_pet_modular_mobx/app/core/rest_client/dio/interceptors/auth_interceptors.dart';
+import 'package:cuida_pet_modular_mobx/app/core/rest_client/dio/interceptors/auth_refresh_toker_interceptors.dart';
 import 'package:cuida_pet_modular_mobx/app/core/rest_client/rest_client.dart';
 import 'package:cuida_pet_modular_mobx/app/core/rest_client/rest_client_response.dart';
 import 'package:cuida_pet_modular_mobx/app/modules/core/auth/auth_store.dart';
@@ -24,8 +25,9 @@ class DioRestClient implements RestClient {
   );
 
   DioRestClient({
-    required LocalStorage localStorage,
+    required LocalSecureStorage localSecureStorage,
     required AppLogger log,
+    required LocalStorage localStorage,
     required AuthStore authStore,
     BaseOptions? baseOptions,
   }) {
@@ -33,8 +35,14 @@ class DioRestClient implements RestClient {
       baseOptions ?? _defaultOptions,
     );
     _dio.interceptors.addAll([
-      AuthInterceptors(
-          localStorage: localStorage, appLogger: log, authStore: authStore),
+      AuthInterceptors(localStorage: localStorage, authStore: authStore),
+      AuthRefreshTokerInterceptors(
+        authStore: authStore,
+        localStorage: localStorage,
+        localSecureStorage: localSecureStorage,
+        restClient: this,
+        log: log,
+      ),
       LogInterceptor(
         requestBody: true,
         responseBody: true,

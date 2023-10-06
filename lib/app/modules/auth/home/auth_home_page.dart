@@ -30,7 +30,7 @@ class _AuthHomePageState extends State<AuthHomePage> {
       },
     );
 
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) { 
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) { 
       widget._authStore.loadUserLogged();
     });
   }

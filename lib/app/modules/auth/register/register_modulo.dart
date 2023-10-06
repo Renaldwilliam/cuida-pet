@@ -10,5 +10,5 @@ class RegisterModulo extends Module {
       ];
   @override
   List<ModularRoute> get routes =>
-      [ChildRoute(Modular.initialRoute, child: (_, __) => RegisterPage())];
+      [ChildRoute(Modular.initialRoute, child: (_, __) => const RegisterPage())];
 }

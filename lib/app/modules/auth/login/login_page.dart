@@ -1,12 +1,9 @@
 import 'package:cuida_pet_modular_mobx/app/core/helpers/environments.dart';
-import 'package:cuida_pet_modular_mobx/app/core/local_storage/local_storage.dart';
-import 'package:cuida_pet_modular_mobx/app/core/logger/app_logger.dart';
 import 'package:cuida_pet_modular_mobx/app/core/ui/extensions/size_screen_extension.dart';
 import 'package:cuida_pet_modular_mobx/app/core/ui/extensions/theme_extension.dart';
 import 'package:cuida_pet_modular_mobx/app/core/ui/icons/cuidapet_icons.dart';
 import 'package:cuida_pet_modular_mobx/app/core/ui/widgets/cuida_pet_default_button.dart';
 import 'package:cuida_pet_modular_mobx/app/core/ui/widgets/cuida_pet_text_form_field.dart';
-import 'package:cuida_pet_modular_mobx/app/core/ui/widgets/loader.dart';
 import 'package:cuida_pet_modular_mobx/app/core/ui/widgets/mesagens.dart';
 import 'package:cuida_pet_modular_mobx/app/models/social_login_type.dart';
 import 'package:cuida_pet_modular_mobx/app/modules/auth/login/login_controller.dart';
@@ -71,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
 }
 
 class _OrSeparator extends StatelessWidget {
-  const _OrSeparator({super.key});
+  const _OrSeparator();
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +81,7 @@ class _OrSeparator extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Text(
             'OU',
             style: TextStyle(

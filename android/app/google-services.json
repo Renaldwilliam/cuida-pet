@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "978106302553-jqjrmnlnlb9mclt5f6bmd0ahuat62a9j.apps.googleusercontent.com",
+          "client_id": "978106302553-behgep1iich3sv0fppc9nvo4ih210nbj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "br.com.academiadoflutter.cuida_pet_modular_mobx",
-            "certificate_hash": "4b203cc5505d491412c0734488ea3c92f3796224"
+            "certificate_hash": "2f3ea8928ff61dd6f747155fb3fcad4968114a1b"
           }
         },
         {

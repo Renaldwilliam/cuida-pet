@@ -1,3 +1,4 @@
+import 'package:cuida_pet_modular_mobx/app/core/database/sqlite_connection_factory.dart';
 import 'package:cuida_pet_modular_mobx/app/modules/auth/home/auth_home_page.dart';
 import 'package:cuida_pet_modular_mobx/app/modules/auth/login/login_modulo.dart';
 import 'package:cuida_pet_modular_mobx/app/repositories/user/user_repository.dart';

@@ -6,23 +6,28 @@ import 'package:cuida_pet_modular_mobx/app/core/logger/app_logger_impl.dart';
 import 'package:cuida_pet_modular_mobx/app/core/rest_client/dio/dio_rest_client.dart';
 import 'package:cuida_pet_modular_mobx/app/core/rest_client/rest_client.dart';
 import 'package:cuida_pet_modular_mobx/app/modules/core/auth/auth_store.dart';
+import 'package:cuida_pet_modular_mobx/app/repositories/address/address_repository.dart';
+import 'package:cuida_pet_modular_mobx/app/services/address/address_service.dart';
+import 'package:cuida_pet_modular_mobx/app/services/address/address_service_impl.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import '../../core/database/sqlite_connection_factory.dart';
+import '../../repositories/address/address_repository_impl.dart';
 
 class CoreModule extends Module {
   @override
   List<Bind> get binds => [
+        Bind.lazySingleton((i) => SqliteConnectionFactory(), export: true),
         Bind.lazySingleton<AppLogger>((i) => AppLoggerImpl(), export: true),
-        Bind.lazySingleton<LocalStorage>(
-            (i) => SharedPreferencesLocalStorageImpl(),
-            export: true),
-        Bind.lazySingleton<LocalSecureStorage>(
-            (i) => FlutterSecureStorageLocalStorageImpl(),
-            export: true),
-        Bind.lazySingleton<AuthStore>((i) => AuthStore(
-          localStorage: i()
-        ), export: true),
-        Bind.lazySingleton<RestClient>(
-            (i) => DioRestClient(localStorage: i(), log: i(), authStore: i()),
-            export: true),
+        Bind.lazySingleton<LocalStorage>((i) => SharedPreferencesLocalStorageImpl(), export: true),
+        Bind.lazySingleton<LocalSecureStorage>((i) => FlutterSecureStorageLocalStorageImpl(), export: true),
+        Bind.lazySingleton<AuthStore>(
+            (i) => AuthStore(
+                localStorage: i(),
+                localSecureStorage: i(),
+                addressService: i()), export: true),
+        Bind.lazySingleton<AddressRepository>( (i) => AddressRepositoryImpl(sqliteConnectionFactory: i()),export: true),
+        Bind.lazySingleton<AddressService>((i) => AddressServiceImpl(addressRepository: i(), localStorage: i()),export: true),
+        Bind.lazySingleton<RestClient>( (i) => DioRestClient(localStorage: i(), authStore: i(), localSecureStorage: i(),log: i()), export: true),
       ];
 }

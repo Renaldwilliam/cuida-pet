@@ -10,6 +10,13 @@
             "type": "dart"
         },
         {
+            "name": "Production(Debug)",
+            "request": "launch",
+            "flutterMode": "debug",
+            "type": "dart",
+            "program": "lib/main.dart",
+        },
+        {
             "name": "cuida_pet_modular_mobx (profile mode)",
             "request": "launch",
             "type": "dart",
@@ -20,6 +27,12 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
+        },
+        {
+            "name": "FVM Flutter Run",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
         }
     ]
 }

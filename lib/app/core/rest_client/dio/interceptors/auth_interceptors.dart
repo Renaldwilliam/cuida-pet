@@ -1,22 +1,17 @@
 import 'package:cuida_pet_modular_mobx/app/core/helpers/constants.dart';
 import 'package:cuida_pet_modular_mobx/app/core/local_storage/local_storage.dart';
-import 'package:cuida_pet_modular_mobx/app/core/logger/app_logger.dart';
 import 'package:cuida_pet_modular_mobx/app/modules/core/auth/auth_store.dart';
 import 'package:dio/dio.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthInterceptors extends Interceptor {
   final LocalStorage _localStorage;
-  final AppLogger _log;
   final AuthStore _authStore;
 
   AuthInterceptors(
       {required LocalStorage localStorage,
-      required AppLogger appLogger,
       required AuthStore authStore})
       : _localStorage = localStorage,
-        _authStore = authStore,
-        _log = appLogger;
+        _authStore = authStore;
 
   @override
   Future<void> onRequest(

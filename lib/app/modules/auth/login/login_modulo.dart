@@ -7,14 +7,14 @@ class LoginModulo extends Module {
   List<Bind> get binds => [
         Bind.lazySingleton(
           (i) => LoginController(userService: i(), log: i()),
-        ),
+        )
       ];
 
   @override
   List<ModularRoute> get routes => [
         ChildRoute(
           Modular.initialRoute,
-          child: (_, __) => LoginPage(),
+          child: (_, __) => const LoginPage(),
         ),
       ];
 }

@@ -4,7 +4,7 @@ class _LoginRegisterButtons extends StatelessWidget {
 
   final LoginController controller = Modular.get<LoginController>();
   
-  _LoginRegisterButtons({super.key});
+  _LoginRegisterButtons();
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,9 @@ class _LoginRegisterButtons extends StatelessWidget {
       runSpacing: 10,
       children: [
         RoundedButoonWithIcon(
-          onTap: () {},
+          onTap: () {
+            controller.sociaLogin(SocialLoginType.facebook);
+          },
           color: const Color(0xFF3B5999),
           width: .42.sw,
           label: 'Facebook',
